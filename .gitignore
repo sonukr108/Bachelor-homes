@@ -1,31 +1,17 @@
-# Environment files
-.env
-.env.*
-
-# Node dependencies (ALL projects)
+# Node
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Build folders
+# Build
 dist/
 build/
-out/
-.next/
 
-# Logs
-*.log
+# Env
+.env
+.env.local
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
-
-# IDE settings
-.vscode/
-.idea/
-
-# Cache & coverage
-.cache/
-coverage/
-
-# Uploads / temp
-uploads/
-tmp/
