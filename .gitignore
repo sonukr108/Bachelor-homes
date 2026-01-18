@@ -1,0 +1,31 @@
+# Environment files
+.env
+.env.*
+
+# Node dependencies (ALL projects)
+node_modules/
+
+# Build folders
+dist/
+build/
+out/
+.next/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Cache & coverage
+.cache/
+coverage/
+
+# Uploads / temp
+uploads/
+tmp/
