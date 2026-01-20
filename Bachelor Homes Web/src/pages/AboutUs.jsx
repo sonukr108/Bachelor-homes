@@ -2,12 +2,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FeatureCard from '../components/FeatureCard';
 
-import img1 from '../assets/aboutuspage/1.svg';
-import img2 from '../assets/aboutuspage/2.svg';
-import img3 from '../assets/aboutuspage/3.svg';
-import img4 from '../assets/aboutuspage/4.svg';
-import img5 from '../assets/aboutuspage/5.svg';
-import img6 from '../assets/aboutuspage/6.svg';
+const img1 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/aboutuspage/1.svg';
+const img2 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/aboutuspage/2.svg';
+const img3 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/aboutuspage/3.svg';
+const img4 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/aboutuspage/4.svg';
+const img5 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/aboutuspage/5.svg';
+const img6 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/aboutuspage/6.svg';
 
 const featuresData = [
   {

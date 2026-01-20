@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Logo from '../assets/logo.svg';
+const Logo = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import SearchModel from './SearchModel';

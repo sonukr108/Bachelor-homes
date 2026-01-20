@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LogoImg from '../assets/lightLogo.svg'
+const LogoImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/logo.svg'
 import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
@@ -9,10 +9,10 @@ const SignUpPage = () => {
     return (
         <div className="relative min-h-screen flex items-center justify-center">
             <div className=" grid md:grid-cols-2 grid-cols-1 px-[5%] py-5 lg:px-[15%] md:py-10">
-                <div className="absolute inset-0 bg-center bg-no-repeat bg-cover md:bg-fixed bg-[url('/loginbg.svg')] -z-10"></div>
+                <div className="absolute inset-0 bg-center bg-no-repeat bg-cover md:bg-fixed bg-[url('https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/loginbg.svg')] -z-10"></div>
                 {/* Left Side */}
                 <div className="left flex flex-col items-center md:items-start">
-                    <img src={LogoImg} alt="Logo" className="w-24 h-24 md:mb-4" />
+                    <img src={LogoImg} alt="Logo" className="invert w-24 h-24 md:mb-4" />
                     <h1 className="text-3xl font-bold text-white mb-2 md:flex hidden">
                         Start Your Journey with Bachelor Homes
                     </h1>

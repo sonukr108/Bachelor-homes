@@ -4,9 +4,9 @@ import Footer from '../components/Footer';
 import PartnerCard from '../components/PartnerCard';
 import { Building2, Home, GraduationCap, Package } from 'lucide-react';
 
-import propertyImg from '../assets/partnerwithus/1.svg';
-import peopleImg from '../assets/partnerwithus/2.svg';
-import productImg from '../assets/partnerwithus/3.svg';
+const propertyImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/partnerwithus/1.svg';
+const peopleImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/partnerwithus/2.svg';
+const productImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/partnerwithus/3.svg';
 
 const PartnerWithUs = () => {
   const sections = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import BuildingImg from '../assets/building.svg';
+const BuildingImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/building.svg';
 import { Link } from 'react-router-dom';
 
 const ContactUs = () => {

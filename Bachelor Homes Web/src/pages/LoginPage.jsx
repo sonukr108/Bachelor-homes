@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LogoImg from '../assets/lightLogo.svg'
+const LogoImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/logo.svg'
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -7,9 +7,9 @@ const LoginPage = () => {
   const navigate = useNavigate();
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-cover bg-center bg-[url('/loginbg.svg')] grid md:grid-cols-2 grid-cols-1 px-[5%] py-5 lg:px-[15%] md:py-20">
+      <div className="absolute inset-0 bg-cover bg-center bg-[url('https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/loginbg.svg')] grid md:grid-cols-2 grid-cols-1 px-[5%] py-5 lg:px-[15%] md:py-20">
         <div className="left flex flex-col items-center md:items-start">
-          <img src={LogoImg} alt="Logo" className="w-24 h-24 md:mb-4" />
+          <img src={LogoImg} alt="Logo" className="invert w-24 h-24 md:mb-4" />
           <h1 className="text-3xl font-bold text-white mb-2 md:flex hidden">Find Your Perfect Stay with Bachelor Homes</h1>
           <p className="text-lg text-gray-200 mb-6 md:flex hidden">Sign in with your email to explore exclusive accommodations tailored for students and working professionals.</p>
         </div>

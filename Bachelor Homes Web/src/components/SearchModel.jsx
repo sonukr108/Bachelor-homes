@@ -1,6 +1,6 @@
 import SearchBox from '../components/SearchBox';
 import { X } from "lucide-react";
-import cityImg from '../assets/city.png';
+const cityImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/city.png';
 import { useNavigate } from "react-router-dom";
 
 const cities = [

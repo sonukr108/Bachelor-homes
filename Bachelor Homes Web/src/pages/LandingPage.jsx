@@ -1,29 +1,29 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import CarouselComponent from '../components/CarouselComponent'
-import BoyImg from '../assets/boy.svg'
-import GirlImg from '../assets/girl.svg'
-import ColivingImg from '../assets/coliving.svg'
 import SearchBox from '../components/SearchBox'
 import { BedDouble, Building, Building2 } from 'lucide-react'
 import PGOptionCard from '../components/PGOptionCard'
 import InfoCard from '../components/InfoCard'
-import FirstImg from '../assets/landingpage/1.svg'
-import SecondImg from '../assets/landingpage/2.svg'
-import ThirdImg from '../assets/landingpage/3.svg'
-import FourthImg from '../assets/landingpage/4.svg'
-import FifthImg from '../assets/landingpage/5.svg'
-import SixthImg from '../assets/landingpage/6.svg'
-import SeventhImg from '../assets/landingpage/7.svg'
-import EighthImg from '../assets/landingpage/8.svg'
-import NinethImg from '../assets/landingpage/9.svg'
-import TenthImg from '../assets/landingpage/10.svg'
-import Slide1 from '../assets/landingpage/slide1.jpg'
-import Slide2 from '../assets/landingpage/slide2.jpg'
-import Slide3 from '../assets/landingpage/slide3.jpg'
-import Slide4 from '../assets/landingpage/slide4.jpg'
-import Slide5 from '../assets/landingpage/slide5.jpg'
-import Slide6 from '../assets/landingpage/slide6.jpg'
+const BoyImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/boy.svg'
+const GirlImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/girl.svg'
+const ColivingImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/coliving.svg'
+const FirstImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/1.svg'
+const SecondImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/2.svg'
+const ThirdImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/3.svg'
+const FourthImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/4.svg'
+const FifthImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/5.svg'
+const SixthImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/6.svg'
+const SeventhImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/7.svg'
+const EighthImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/8.svg'
+const NinethImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/9.svg'
+const TenthImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/10.svg'
+const Slide1 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/slide1.jpg'
+const Slide2 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/slide2.jpg'
+const Slide3 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/slide3.jpg'
+const Slide4 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/slide4.jpg'
+const Slide5 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/slide5.jpg'
+const Slide6 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/landingpage/slide6.jpg'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -195,7 +195,7 @@ const LandingPage = () => {
                         loop={true}
                         autoplay={{ delay: 1000 }}
                     >
-                        {[Slide1, Slide2, Slide3,Slide4,Slide5,Slide6].map((slide, index) => (
+                        {[Slide1, Slide2, Slide3, Slide4, Slide5, Slide6].map((slide, index) => (
                             <SwiperSlide key={index} className="flex justify-center">
                                 <img
                                     src={slide}

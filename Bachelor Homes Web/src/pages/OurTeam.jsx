@@ -3,13 +3,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TeamMemberCard from '../components/TeamMemberCard';
 
-import img1 from '../assets/ourteampage/1.svg';
-import img2 from '../assets/ourteampage/1.svg';
-import img3 from '../assets/ourteampage/1.svg';
-import img4 from '../assets/ourteampage/1.svg';
-import img5 from '../assets/ourteampage/1.svg';
-import img6 from '../assets/ourteampage/1.svg';
-import img7 from '../assets/ourteampage/1.svg';
+const img1 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
+const img2 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
+const img3 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
+const img4 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
+const img5 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
+const img6 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
+const img7 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
 
 const teamMembers = [
   {

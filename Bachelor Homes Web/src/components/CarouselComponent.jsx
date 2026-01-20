@@ -2,11 +2,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import Slide1 from '../assets/sliders/slide1.svg'
-import Slide2 from '../assets/sliders/slide2.svg'
-import Slide3 from '../assets/sliders/slide3.svg'
-import Slide4 from '../assets/sliders/slide4.svg'
-import Slide5 from '../assets/sliders/slide5.svg'
+
+const Slide1 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/sliders/slide1.svg'
+const Slide2 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/sliders/slide2.svg'
+const Slide3 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/sliders/slide3.svg'
+const Slide4 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/sliders/slide4.svg'
+const Slide5 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/sliders/slide5.svg'
 
 const CarouselComponent = () => {
   return (

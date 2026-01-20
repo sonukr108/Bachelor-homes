@@ -5,8 +5,9 @@ import { useParams } from 'react-router-dom';
 import { Home, Building2 } from 'lucide-react';
 import PGCard from '../components/PGCard';
 import FlatCard from '../components/FlatCard';
-import PGImg from '../assets/pg.svg';
-import FlatImg from '../assets/pg.svg';
+
+const PGImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/pg.svg';
+const FlatImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/pg.svg';
 
 // PG Data with IDs
 const pgList = [
