@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const Logo = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/lightLogo.svg';
+import Logo from '../assets/lightLogo.svg'
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {

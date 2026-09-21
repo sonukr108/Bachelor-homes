@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-const LogoImg = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/logo.svg'
+import LogoImg from '../assets/logo.svg'
 import { useNavigate } from "react-router-dom";
+import img1 from '../assets/aboutuspage/1.svg';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-cover bg-center bg-[url('https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/loginbg.svg')] grid md:grid-cols-2 grid-cols-1 px-[5%] py-5 lg:px-[15%] md:py-20">
+      <div className="absolute inset-0 bg-cover bg-center bg-[url('/loginbg.svg')] grid md:grid-cols-2 grid-cols-1 px-[5%] py-5 lg:px-[15%] md:py-20">
         <div className="left flex flex-col items-center md:items-start">
           <img src={LogoImg} alt="Logo" className="invert w-24 h-24 md:mb-4" />
           <h1 className="text-3xl font-bold text-white mb-2 md:flex hidden">Find Your Perfect Stay with Bachelor Homes</h1>

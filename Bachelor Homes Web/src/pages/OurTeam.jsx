@@ -3,13 +3,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TeamMemberCard from '../components/TeamMemberCard';
 
-const img1 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
-const img2 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
-const img3 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
-const img4 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
-const img5 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
-const img6 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
-const img7 = 'https://bhbsgnvafbmrtwrgslek.supabase.co/storage/v1/object/public/static-images/ourteampage/1.svg';
+import img1 from '../assets/ourteampage/1.svg';
+import img2 from '../assets/ourteampage/1.svg';
+import img3 from '../assets/ourteampage/1.svg';
+import img4 from '../assets/ourteampage/1.svg';
+import img5 from '../assets/ourteampage/1.svg';
+import img6 from '../assets/ourteampage/1.svg';
+import img7 from '../assets/ourteampage/1.svg';
 
 const teamMembers = [
   {
@@ -21,7 +21,7 @@ const teamMembers = [
     reverse: false,
   },
   {
-    name: "Ajay Kumar",
+    name: "Sonu Kumar Verma",
     role: "Frontend Developer",
     description:
       "React developer behind Bachelor Homes, ensuring an intuitive user experience, clean design, and smooth functionality, while also managing team collaboration and project execution.",
@@ -29,7 +29,7 @@ const teamMembers = [
     reverse: true,
   },
   {
-    name: "Rahul Kumar",
+    name: "Sonu Kumar Verma",
     role: "Backend Developer",
     description:
       "Lead designer and full-stack developer behind Bachelor Homes, ensuring an intuitive user experience, clean design, and smooth functionality, while also managing team collaboration and project execution.",
@@ -37,7 +37,7 @@ const teamMembers = [
     reverse: false,
   },
   {
-    name: "Shubham Kumar Verma",
+    name: "Sonu Kumar Verma",
     role: "Data Architect",
     description:
       "React developer behind Bachelor Homes, ensuring an intuitive user experience, clean design, and smooth functionality, while also managing team collaboration and project execution.",
@@ -45,7 +45,7 @@ const teamMembers = [
     reverse: true,
   },
   {
-    name: "Abhijeet Kumar",
+    name: "Sonu Kumar Verma",
     role: "Database Administrator",
     description:
       "Lead designer and full-stack developer behind Bachelor Homes, ensuring an intuitive user experience, clean design, and smooth functionality, while also managing team collaboration and project execution.",
@@ -53,7 +53,7 @@ const teamMembers = [
     reverse: false,
   },
   {
-    name: "Premjeet Kumar Verma",
+    name: "Sonu Kumar Verma",
     role: "Frontend Developer",
     description:
       "React developer behind Bachelor Homes, ensuring an intuitive user experience, clean design, and smooth functionality, while also managing team collaboration and project execution.",
@@ -61,7 +61,7 @@ const teamMembers = [
     reverse: true,
   },
   {
-    name: "Ahmad Raza",
+    name: "Sonu Kumar Verma",
     role: "Frontend Developer",
     description:
       "Lead designer and full-stack developer behind Bachelor Homes, ensuring an intuitive user experience, clean design, and smooth functionality, while also managing team collaboration and project execution.",
