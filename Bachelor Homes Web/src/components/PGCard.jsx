@@ -17,7 +17,7 @@ const PGCard = ({ pg, id }) => {
       
       {/* PG Image */}
       <img
-        src={pg.img}
+        src={pg.images[0]}
         alt={pg.name}
         className="w-full md:w-72 h-48 object-cover rounded-xl"
       />
@@ -73,7 +73,7 @@ const PGCard = ({ pg, id }) => {
         {/* ✅ Navigate to Combined URL */}
         <button
           className="bg-[#520075] text-white px-4 py-2 rounded-lg hover:bg-[#3b005c] transition w-full cursor-pointer"
-          onClick={() => navigate(`/showpg/${slug}/pg/${id}`)}
+          onClick={() => navigate(`/show/${slug}/pg/${id}`)}
         >
           View details
         </button>

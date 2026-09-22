@@ -11,11 +11,10 @@ import ScrollToTop from "./components/ScrollToTop";
 import ContactUs from './pages/ContactUs';
 import TermsAndConditions from './pages/TermsAndConditions';
 import FrequentlyAskedQuestions from './pages/FrequentlyAskedQuestions';
-import ShowPG from './pages/ShowPG';
-import PGDetails from './pages/PGDetails';
-import FlatDetails from './pages/FlatDetails';
+import AfterSearch from './pages/AfterSearch';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
+import PropertyDetails from './pages/PropertyDetails';
 
 function App() {
 
@@ -41,15 +40,18 @@ function App() {
         <Route path="/faqs" element={<FrequentlyAskedQuestions />} />
 
         {/* Parent route */}
-        <Route path="/showpg/:slug" element={<ShowPG />} />
+        <Route path="/showpg/:slug" element={<AfterSearch />} />
 
         {/* Nested routes */}
-        <Route path="/showpg/:slug/pg/:id" element={<PGDetails />} />
-        <Route path="/showpg/:slug/flat/:id" element={<FlatDetails />} />
+        <Route
+          path="/show/:slug/:type/:id"
+          element={<PropertyDetails />}
+        />
 
         {/* Add more routes as needed */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+
       </Routes>
     </BrowserRouter>
   );
