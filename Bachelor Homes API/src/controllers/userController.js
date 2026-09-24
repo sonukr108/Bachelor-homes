@@ -1,11 +1,11 @@
-const supabase = require("../config/supabase");
-const bcrypt = require("bcrypt");
+import supabase from "../config/supabase.js";
+import bcrypt from "bcrypt";
 
 // Get all users
 const getUsers = async (req, res) => {
     try {
         const { data, error } = await supabase
-            .from("users")
+            .from("Users")
             .select("*");
 
         if (error) {
@@ -44,7 +44,7 @@ const createUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const { data, error } = await supabase
-            .from("users")
+            .from("Users")
             .insert([
                 {
                     name,
@@ -89,7 +89,7 @@ const loginUser = async (req, res) => {
 
         // Find user by email
         const { data, error } = await supabase
-            .from("users")
+            .from("Users")
             .select("*")
             .eq("email", email)
             .single();
@@ -128,8 +128,4 @@ const loginUser = async (req, res) => {
     }
 };
 
-module.exports = {
-    getUsers,
-    createUser,
-    loginUser,
-};
+export { getUsers, createUser, loginUser };

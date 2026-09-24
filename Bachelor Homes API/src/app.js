@@ -1,6 +1,9 @@
-const express = require('express');
+import express from 'express';
 
-const userRoutes = require('./routes/userRoutes');
+import userRoutes from './routes/userRoutes.js';
+import ownerRoutes from './routes/ownerRoutes.js'
+import imageRoutes from './routes/imageRoutes.js'
+import propertyRoutes from "./routes/propertyRoutes.js";
 
 const app = express();
 
@@ -11,5 +14,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/users', userRoutes);
+app.use("/api/owners", ownerRoutes);
+app.use("/api/properties", propertyRoutes);
+app.use("/api/image", imageRoutes);
 
-module.exports = app;
+export default app;
