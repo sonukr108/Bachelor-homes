@@ -2,7 +2,8 @@ import express from "express";
 import multer from "multer";
 
 import {
-    uploadImage, deleteImage
+    deleteImage,
+    uploadImages
 } from "../controllers/imageController.js";
 
 import { authenticateUser } from "../middleware/authMiddleware.js";
@@ -40,8 +41,8 @@ const upload = multer({
 router.post(
     "/upload",
     authenticateUser,
-    upload.single("image"),
-    uploadImage
+    upload.array("images"),
+    uploadImages
 );
 
 router.delete(

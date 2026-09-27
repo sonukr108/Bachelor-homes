@@ -1,82 +1,187 @@
 import path from "path";
+import crypto from "crypto";
 import supabase from "../config/supabase.js";
 
-
 // ==========================================
-// UPLOAD IMAGE
+// UPLOAD MULTIPLE IMAGES
 // ==========================================
-export const uploadImage = async (req, res) => {
+export const uploadImages = async (req, res) => {
     try {
         const userId = req.user.id;
 
-        // Check image
-        if (!req.file) {
+        // Check files
+        if (!req.files || req.files.length === 0) {
             return res.status(400).json({
                 success: false,
-                message: "Image is required",
+                message: "At least one image is required",
             });
         }
 
-        const extension = path.extname(req.file.originalname);
+        // ==========================================
+        // GET EXISTING FILES FOR THIS USER
+        // ==========================================
+        const { data: existingFiles, error: listError } =
+            await supabase.storage
+                .from("property-images")
+                .list(userId);
 
-        const fileName = `${Date.now()}-${Math.random()
-            .toString(36)
-            .substring(2, 10)}${extension}`;
-
-        // User-specific folder
-        const filePath = `${userId}/${fileName}`;
-
-        // Upload image
-        const { error: uploadError } = await supabase.storage
-            .from("property-images")
-            .upload(filePath, req.file.buffer, {
-                contentType: req.file.mimetype,
-                upsert: false,
-            });
-
-        if (uploadError) {
-            console.error("Image upload error:", uploadError);
+        if (listError) {
+            console.error("List images error:", listError);
 
             return res.status(500).json({
                 success: false,
-                message: uploadError.message,
+                message: "Failed to check existing images",
             });
         }
 
-        // Get public URL
-        const { data: publicUrlData } = supabase.storage
-            .from("property-images")
-            .getPublicUrl(filePath);
+        // ==========================================
+        // CREATE HASH FOR EACH FILE
+        // ==========================================
+        const filesWithHash = req.files.map((file) => {
+            const hash = crypto
+                .createHash("sha256")
+                .update(file.buffer)
+                .digest("hex");
 
-        return res.status(201).json({
-            success: true,
-            message: "Image uploaded successfully",
+            return {
+                file,
+                hash,
+            };
+        });
 
-            image: {
+        // ==========================================
+        // REMOVE DUPLICATES FROM SAME REQUEST
+        // ==========================================
+        const uniqueFiles = [];
+
+        const requestHashes = new Set();
+
+        for (const item of filesWithHash) {
+            if (!requestHashes.has(item.hash)) {
+                requestHashes.add(item.hash);
+                uniqueFiles.push(item);
+            }
+        }
+
+        // ==========================================
+        // PROCESS IMAGES
+        // ==========================================
+        const uploadPromises = uniqueFiles.map(async ({ file, hash }) => {
+            // Find existing image by hash
+            const existingFile = existingFiles?.find((item) => {
+                const existingName = item.name;
+
+                // Remove extension
+                const existingHash = path
+                    .parse(existingName)
+                    .name;
+
+                return existingHash === hash;
+            });
+
+            // ==========================================
+            // IMAGE ALREADY EXISTS
+            // ==========================================
+            if (existingFile) {
+                const filePath = `${userId}/${existingFile.name}`;
+
+                const { data: publicUrlData } = supabase.storage
+                    .from("property-images")
+                    .getPublicUrl(filePath);
+
+                return {
+                    url: publicUrlData.publicUrl,
+                    path: filePath,
+                    fileName: existingFile.name,
+                    originalName: file.originalname,
+                    status: "existing",
+                };
+            }
+
+            // ==========================================
+            // IMAGE DOES NOT EXIST
+            // ==========================================
+            const extension = path.extname(file.originalname).toLowerCase();
+
+            // Hash becomes filename
+            const fileName = `${hash}${extension}`;
+
+            const filePath = `${userId}/${fileName}`;
+
+            const { error: uploadError } = await supabase.storage
+                .from("property-images")
+                .upload(filePath, file.buffer, {
+                    contentType: file.mimetype,
+                    upsert: false,
+                });
+
+            if (uploadError) {
+                // Handle race condition:
+                // Another request may have uploaded the same image
+                if (
+                    uploadError.message?.includes("already exists") ||
+                    uploadError.message?.includes("Duplicate")
+                ) {
+                    const { data: publicUrlData } = supabase.storage
+                        .from("property-images")
+                        .getPublicUrl(filePath);
+
+                    return {
+                        url: publicUrlData.publicUrl,
+                        path: filePath,
+                        fileName,
+                        originalName: file.originalname,
+                        status: "existing",
+                    };
+                }
+
+                throw new Error(
+                    `Failed to upload ${file.originalname}: ${uploadError.message}`
+                );
+            }
+
+            // ==========================================
+            // GET PUBLIC URL
+            // ==========================================
+            const { data: publicUrlData } = supabase.storage
+                .from("property-images")
+                .getPublicUrl(filePath);
+
+            return {
                 url: publicUrlData.publicUrl,
                 path: filePath,
                 fileName,
-            },
+                originalName: file.originalname,
+                status: "uploaded",
+            };
         });
 
+        const images = await Promise.all(uploadPromises);
+
+        // ==========================================
+        // RESPONSE
+        // ==========================================
+        return res.status(201).json({
+            success: true,
+            message: "Images processed successfully",
+            count: images.length,
+            images,
+        });
     } catch (error) {
-        console.error("Upload image error:", error);
+        console.error("Upload images error:", error);
 
         return res.status(500).json({
             success: false,
-            message: "Internal server error",
+            message: error.message || "Internal server error",
         });
     }
 };
-
-
 // ==========================================
 // DELETE IMAGE
 // ==========================================
 export const deleteImage = async (req, res) => {
     try {
         const userId = req.user.id;
-
         const { fileName } = req.body;
 
         // Check filename
@@ -106,15 +211,12 @@ export const deleteImage = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: "Image deleted successfully",
-
             deleted: {
                 fileName,
                 path: filePath,
             },
-
             data,
         });
-
     } catch (error) {
         console.error("Delete image error:", error);
 

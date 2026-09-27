@@ -15,7 +15,7 @@ const Sidebar = () => {
 
     const items = [
         { to: '/', icon: <IoGridOutline size={20} />, text: 'Dashboard' },
-        { to: '/rooms', icon: <IoHomeOutline size={20} />, text: 'My rooms' },
+        { to: '/properties', icon: <IoHomeOutline size={20} />, text: 'My Properties' },
         { to: '/booking', icon: <TbColorSwatch size={20} />, text: 'Booking' },
         { to: '/callrequest', icon: <LuPhoneCall size={20} />, text: 'Callback request' },
     ];
@@ -28,7 +28,7 @@ const Sidebar = () => {
             <div className='md:hidden'>
                 <div className='p-3 flex items-center gap-5'>
                     <CgFormatJustify size={25} onClick={() => setSideOpen(true)} />
-                    <Link to={'/dashboard'}><img className='h-12' src={logo} alt="logo" /></Link>
+                    <Link to={'/'}><img className='h-12' src={logo} alt="logo" /></Link>
                 </div>
 
                 <div className={`fixed  shadow-xl/30 shadow-black top-0 left-0 h-full w-50 bg-[#520075] z-50 transform transition-transform ease-in-out duration-300 ${sideOpen ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -55,7 +55,7 @@ const Sidebar = () => {
 
             {/* Desktop View */}
             <div className='md:w-[25vw] lg:w-[20vw] xl:w-[15vw] hidden md:flex flex-col items-center gap-2 p-5 h-screen text-md'>
-                <Link to={'/dashboard'}><img className='h-16 lg:h-18 mb-4' src={logo} alt="logo" /></Link>
+                <Link to={'/'}><img className='h-16 lg:h-18 mb-4' src={logo} alt="logo" /></Link>
                 {items.map((item, index) => (
                     <Link
                         key={index}

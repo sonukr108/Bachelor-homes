@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import { MdOutlineBedroomParent } from "react-icons/md";
@@ -7,6 +7,8 @@ import { LuPhoneCall } from "react-icons/lu";
 import Weekly from '../components/Weekly';
 import Monthly from '../components/Monthly';
 import Yearly from '../components/Yearly';
+import useOwnerAuthStore from "../store/ownerAuthStore";
+import usePropertyStore from "../store/propertyStore";
 
 const Dashboard = () => {
     const [orderHistoryValue, setOrderHistoryValue] = useState("weekly");
@@ -24,6 +26,24 @@ const Dashboard = () => {
             default: return "w-full h-[250px]";
         }
     };
+
+    const owner = useOwnerAuthStore(
+        (state) => state.owner
+    );
+
+    const fetchProperties = usePropertyStore(
+        (state) => state.fetchProperties
+    );
+
+    const loading = usePropertyStore(
+        (state) => state.loading
+    );
+
+    useEffect(() => {
+        if (owner?.id) {
+            fetchProperties(owner.id);
+        }
+    }, [owner?.id, fetchProperties]);
 
     // Temporary Data for Order Stats
     const RoomAddedData = {
