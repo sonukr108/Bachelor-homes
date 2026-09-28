@@ -23,6 +23,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("API is running");
 });
+app.get("/hello",(req,res)=>{
+    res.json({"message":"Hello, World!"});
+})
 
 app.use("/api/users", userRoutes);
 app.use("/api/owners", ownerRoutes);
