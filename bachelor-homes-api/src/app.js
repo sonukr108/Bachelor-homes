@@ -6,25 +6,52 @@ import imageRoutes from "./routes/imageRoutes.js";
 import propertyRoutes from "./routes/propertyRoutes.js";
 
 const app = express();
-
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://bachelor-homes-admin.vercel.app",
+];
 
 app.use(
     cors({
-        origin: process.env.FRONTEND_URL,
+        origin: (origin, callback) => {
+            // Allow requests without Origin
+            // (Postman, server-to-server requests, etc.)
+            if (!origin) {
+                return callback(null, true);
+            }
+
+            if (allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
+
+            return callback(new Error("Not allowed by CORS"));
+        },
+
         credentials: true,
-        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"],
+
+        methods: [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE",
+            "OPTIONS",
+        ],
+
+        allowedHeaders: [
+            "Content-Type",
+            "Authorization",
+        ],
     })
 );
-
 app.use(express.json());
 
 
 app.get("/", (req, res) => {
     res.send("API is running");
 });
-app.get("/hello",(req,res)=>{
-    res.json({"message":"Hello, World!"});
+app.get("/hello", (req, res) => {
+    res.json({ "message": "Hello, World!" });
 })
 
 app.use("/api/users", userRoutes);
