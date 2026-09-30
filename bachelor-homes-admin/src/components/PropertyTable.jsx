@@ -17,6 +17,8 @@ const PropertyTable = ({
     setDeleteModalOpen,
     setRoomToDelete,
     setDeleteTitle,
+    setSelectedProperty,
+    setDetailsOpen,
 }) => {
     return (
         <div className="bg-white rounded-md shadow-md">
@@ -54,10 +56,14 @@ const PropertyTable = ({
                         </TableHead>
 
                         <TableBody>
-                            {properties.map((property,index) => (
+                            {properties.map((property, index) => (
                                 <TableRow
                                     key={property.id}
-                                    className="hover:bg-[#6C3483]/5 transition"
+                                    className="cursor-pointer hover:bg-[#6C3483]/5 transition"
+                                    onDoubleClick={() => {
+                                        setSelectedProperty(property);
+                                        setDetailsOpen(true);
+                                    }}
                                 >
                                     <TableCell>
                                         {index + 1}

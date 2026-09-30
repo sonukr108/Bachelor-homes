@@ -24,7 +24,7 @@ const Navbar = () => {
 
     const items = [
         { to: "/", text: "Dashboard" },
-        { to: "/rooms", text: "My rooms" },
+        { to: "/properties", text: "My Properties" },
         { to: "/booking", text: "Booking" },
         { to: "/callrequest", text: "Callback request" },
     ];

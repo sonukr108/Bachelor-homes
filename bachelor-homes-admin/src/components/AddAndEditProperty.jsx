@@ -493,7 +493,7 @@ const AddAndEditProperty = ({
 
     return (
         <div className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center overflow-y-auto py-5">
-            <div className="bg-white text-[#6C3483] rounded-md p-6 w-[95%] md:w-[65%] lg:w-[55%] max-h-[95vh] overflow-y-auto shadow-xl">
+            <div className="bg-white text-[#6C3483] rounded-md p-6 w-[80%] md:w-[60%] lg:w-[50%] max-h-[95vh] overflow-y-auto shadow-xl">
 
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-[#6C3483] pb-3">

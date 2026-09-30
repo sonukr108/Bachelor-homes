@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import PropertyTable from "../components/PropertyTable";
 import AddAndEditProperty from "../components/AddAndEditProperty";
 import DeleteOwnerConfirmationModal from "../components/DeleteConfirmationModal";
+import PropertyDetails from "../components/PropertyDetails";
 import toast from "react-hot-toast";
 import api from "../middleware/authIntercepter";
 import usePropertyStore from "../store/propertyStore";
@@ -13,6 +14,9 @@ const MyProperties = () => {
     const [open, setOpen] = useState(false);
     const [deleteModalOpen, setDeleteModalOpen] =
         useState(false);
+    const [detailsOpen, setDetailsOpen] = useState(false);
+    const [selectedProperty, setSelectedProperty] =
+        useState(null);
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [roomToDelete, setRoomToDelete] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -123,6 +127,8 @@ const MyProperties = () => {
                         setDeleteTitle={
                             setDeleteTitle
                         }
+                        setSelectedProperty={setSelectedProperty}
+                        setDetailsOpen={setDetailsOpen}
                     />
 
                     {open && (
@@ -147,6 +153,13 @@ const MyProperties = () => {
                             }
                             isLoading={isDeleting}
                             deleteTitle={deleteTitle}
+                        />
+                    )}
+
+                    {detailsOpen && (
+                        <PropertyDetails
+                            property={selectedProperty}
+                            setOpen={setDetailsOpen}
                         />
                     )}
                 </div>
